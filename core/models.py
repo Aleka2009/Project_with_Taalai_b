@@ -18,6 +18,7 @@ class Products(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=128)
+    description = models.TextField(blank=True, null=True)
 
     class Meta:
         verbose_name = 'Категория'
