@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.urls import path
 
 from core.views import ProductView, CategoryView
-from costum_auth.views import RegisterView
+from costum_auth.views import RegisterView, LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -17,6 +17,7 @@ urlpatterns = [
         {'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}
     )),
     path('register/', RegisterView.as_view()),
+    path('login/', LoginView.as_view()),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
