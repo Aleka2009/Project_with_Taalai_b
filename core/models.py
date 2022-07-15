@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -7,6 +8,7 @@ class Products(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='product_image', null=True, blank=True)
     category = models.ForeignKey('core.Category', models.CASCADE, null=True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         verbose_name = 'Продукт'
@@ -26,4 +28,3 @@ class Category(models.Model):
 
     def __str__(self):
         return f'{self.name}'
-

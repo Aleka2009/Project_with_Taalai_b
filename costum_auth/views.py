@@ -7,11 +7,13 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 # from rest_framework.viewsets import ModelViewSet
 from rest_framework.authtoken.models import Token
+from rest_framework.viewsets import ModelViewSet
 
 from costum_auth.serializers import RegisterSerializer
 
 
 class RegisterView(APIView):
+
     def post(self, request, *args, **kwargs):
         serializer = RegisterSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
